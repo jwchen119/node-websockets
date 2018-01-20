@@ -14,16 +14,17 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const wss = new SocketServer({ server });
-cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD'])
+
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
   ws.on('close', () => console.log('Client disconnected'));
 });
+cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']);
 var CRYPTO;
 setInterval(
     function(){
-    CRYPTO = cryptoSocket.echoExchange()
+    CRYPTO = cryptoSocket.Exchanges['bitfinex'];
     },1000);
 
 setInterval(() => {
