@@ -22,6 +22,6 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(new cryptoSocket.echoExchange());
+    client.send(new cryptoSocket.echoExchange().toJSONString());
   });
 }, 1000);
