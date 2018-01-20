@@ -4,7 +4,7 @@ const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
 const cryptoSocket = require("crypto-socket")
-cryptoSocket.start();
+
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
@@ -19,10 +19,10 @@ wss.on('connection', (ws) => {
   console.log('Client connected');
   ws.on('close', () => console.log('Client disconnected'));
 });
-
+var CRYPTO;
 setInterval(
     function(){
-    var CRYPTO = cryptoSocket.echoExchange()
+    CRYPTO = cryptoSocket.echoExchange()
     },1000);
 
 setInterval(() => {
