@@ -14,6 +14,7 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const wss = new SocketServer({ server });
+cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD'])
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
