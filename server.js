@@ -3,7 +3,7 @@
 const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
-cryptoSocket = require("crypto-socket")
+const cryptoSocket = require("crypto-socket")
 
 
 const PORT = process.env.PORT || 3000;
