@@ -23,6 +23,6 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']));
+    client.send(cryptoSocket.Exchanges['bitfinex']);
   });
 }, 1000);
