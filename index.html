@@ -1,4 +1,5 @@
 <html>
+  
   <body>
     <p id='server-time'></p>
     <script>
@@ -7,7 +8,7 @@
       var el = document.getElementById('server-time');
 
       ws.onmessage = function (event) {
-        el.innerHTML = 'Data: ' + event.Data;
+        el.innerHTML = 'Data: ' + event;
       };
     </script>
   </body>
