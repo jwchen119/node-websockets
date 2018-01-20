@@ -20,11 +20,11 @@ wss.on('connection', (ws) => {
   console.log('Client connected');
   ws.on('close', () => console.log('Client disconnected'));
 });
-cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']);
+
 var CRYPTO;
 setInterval(
     function(){
-    CRYPTO = cryptoSocket.Exchanges['bitfinex'];
+    CRYPTO = cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']);
     },1000);
 
 setInterval(() => {
