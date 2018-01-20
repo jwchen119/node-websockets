@@ -23,6 +23,7 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(cryptoSocket.Exchanges['bitfinex']);
+    var Data =  cryptoSocket.Exchanges['bitfinex'];
+    client.send(Data);
   });
 }, 1000);
