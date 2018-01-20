@@ -20,10 +20,13 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
+setInterval(
+    function(){
+    var CRYPTO = cryptoSocket.echoExchange()
+    },1000);
+
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(function(){
-       new cryptoSocket.echoExchange()
-    });
+    client.send(CRYPTO);
   });
 }, 1000);
