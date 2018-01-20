@@ -4,7 +4,7 @@ const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
 const cryptoSocket = require("crypto-socket")
-
+cryptoSocket.start();
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
@@ -17,13 +17,11 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
-  cryptoSocket.start();
   ws.on('close', () => console.log('Client disconnected'));
 });
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    var Data =  cryptoSocket.Exchanges['bitfinex'];
-    client.send(Data);
+    client.send(new cryptoSocket.echoExchange());
   });
 }, 1000);
