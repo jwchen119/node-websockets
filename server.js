@@ -23,6 +23,6 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(cryptoSocket.Exchanges['bitfinex']);
+    client.send(cryptoSocket.start("bitfinex","ETHBTC").toJSONString());
   });
 }, 1000);
