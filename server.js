@@ -21,14 +21,8 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var CRYPTO;
-setInterval(
-    function(){
-    CRYPTO = cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']);
-    },1000);
-
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(CRYPTO);
+    client.send(cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']));
   });
 }, 1000);
