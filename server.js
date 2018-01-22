@@ -20,9 +20,9 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var Crypto;
+var Crypto = "Suka blat";
 setTimeout(function() {
-Crypto = cryptoSocket.start("cex","ETHBTC"));
+console.log(cryptoSocket.start("cex","ETHBTC"));
 }, 3000);
 
 setInterval(() => {
