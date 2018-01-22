@@ -17,9 +17,11 @@ const wss = new SocketServer({ server });
 
 
 wss.on('connection', (ws) => {
+  cryptoSocket.start();
   console.log('Client connected');
   ws.on('close', () => console.log('Client disconnected'));
 });
+
 
 setInterval(() => {
   wss.clients.forEach((client) => {
