@@ -15,25 +15,18 @@ const server = express()
 
 const wss = new SocketServer({ server });
 
-wss.on('connection', function connection(ws, req) {
-  const location = url.parse(req.url, true);
-  // You might use location.query.access_token to authenticate or share sessions
-  // or req.headers.cookie (see http://stackoverflow.com/a/16395220/151312)
-
-  ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
-  });
-
-  ws.send('something');
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  ws.on('close', () => console.log('Client disconnected'));
 });
+var Crypto;
+setTimeout(function() {
+Crypto = cryptoSocket.start("cex","ETHBTC"));
+}, 3000);
+console.log(Crypto);
 
-//wss.on('connection', (ws) => {
-//  console.log('Client connected');
-//  ws.on('close', () => console.log('Client disconnected'));
-//});
-
-//setInterval(() => {
- // wss.clients.forEach((client) => {
-   //   client.send(cryptoSocket.start("cex","ETHBTC"));
-  //});
-//}, 1000);
+setInterval(() => {
+wss.clients.forEach((client) => {
+      client.send(JSON.stringify(Crypto);
+  });
+}, 1000);
