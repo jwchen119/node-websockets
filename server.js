@@ -27,6 +27,6 @@ console.log(cryptoSocket.start("cex","ETHBTC"));
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-      client.send(JSON.stringify(Crypto);
+      client.send(JSON.stringify(Crypto));
   });
 }, 1000);
