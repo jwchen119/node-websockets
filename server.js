@@ -19,11 +19,11 @@ wss.on('connection', (ws) => {
   console.log('Client connected');
   ws.on('close', () => console.log('Client disconnected'));
 });
+
 var Crypto;
 setTimeout(function() {
 Crypto = cryptoSocket.start("cex","ETHBTC"));
 }, 3000);
-console.log(Crypto);
 
 setInterval(() => {
 wss.clients.forEach((client) => {
