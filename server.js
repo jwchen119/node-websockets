@@ -21,9 +21,10 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
+console.log(cryptoSocket.Exchanges['bittrex']);
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-      client.send(JSON.stringify(cryptoSocket.Exchanges['bittrex']));
+      client.send("Waaaazup");
   });
 }, 1000);
