@@ -3,7 +3,7 @@
 const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
-const cryptoSocket = require("crypto-socket");
+const coinTicker = require('coin-ticker');
 
 
 const PORT = process.env.PORT || 3000;
@@ -24,7 +24,10 @@ var Crypto = "Suka blat";
 setTimeout(function() {
 setInterval(
 function(){
-console.log(JSON.stringify(cryptoSocket.start("cex","BTCUSD")));
+coinTicker('bitfinex', 'BTC_USD')
+   .then((tick) => {
+      console.log(tick)
+   })
 },1000);
 }, 3000);
 
