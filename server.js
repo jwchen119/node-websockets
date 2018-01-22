@@ -20,7 +20,7 @@ wss.on('connection', (ws) => {
   console.log('Client connected');
   ws.on('close', () => console.log('Client disconnected'));
 });
-
+cryptoSocket.start();
 console.log(cryptoSocket.Exchanges['bitfinex']);
 
 setInterval(() => {
