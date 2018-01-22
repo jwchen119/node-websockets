@@ -22,7 +22,10 @@ wss.on('connection', (ws) => {
 
 var Crypto = "Suka blat";
 setTimeout(function() {
+setInterval(
+function(){
 console.log(JSON.stringify(cryptoSocket.start("cex","ETHBTC")));
+},1000);
 }, 3000);
 
 setInterval(() => {
