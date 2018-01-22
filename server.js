@@ -23,7 +23,7 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-   var Cryptoinfo = cryptoSocket.start("bitmex","ETHBTC").toString();
+   var Cryptoinfo = cryptoSocket.echoExchange().toString();
     client.send(Cryptoinfo);
   });
 }, 1000);
