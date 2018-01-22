@@ -22,7 +22,7 @@ wss.on('connection', (ws) => {
 
 var Crypto = "Suka blat";
 setTimeout(function() {
-coinTicker('bittrex','BTC_ETH','BTC_USD','BTC_SC')
+coinTicker('bitfinex','BTC_ETH','BTC_USD')
    .then((tick) => {
       Crypto = tick;
   })
