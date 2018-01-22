@@ -24,7 +24,7 @@ var Crypto = "Suka blat";
 setTimeout(function() {
 setInterval(
 function(){
-console.log(JSON.stringify(cryptoSocket.echoExchange()));
+console.log(JSON.stringify(cryptoSocket.start()));
 },1000);
 }, 3000);
 
