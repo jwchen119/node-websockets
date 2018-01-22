@@ -24,7 +24,7 @@ var Crypto = "Suka blat";
 setTimeout(function() {
 setInterval(
 function(){
-console.log(JSON.stringify(cryptoSocket.start()));
+console.log(JSON.stringify(cryptoSocket.start("cex","BTCUSD")));
 },1000);
 }, 3000);
 
