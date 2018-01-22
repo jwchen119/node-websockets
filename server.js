@@ -23,6 +23,7 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(new cryptoSocket.start("bittrex","BTCUSD").toString());
+   var Cryptoinfo =  new cryptoSocket.start("bittrex","BTCUSD").toString();
+    client.send(Cryptoinfo);
   });
 }, 1000);
