@@ -24,6 +24,6 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    client.send(cryptoSocket.echoExchange().toString());
+    client.send(cryptoSocket.start("bitfinex",['LTCBTC','BTCUSD']));
   });
 }, 1000);
