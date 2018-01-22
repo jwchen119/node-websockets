@@ -24,7 +24,7 @@ var Crypto = "Suka blat";
 setTimeout(function() {
 setInterval(
 function(){
-console.log(JSON.stringify(cryptoSocket.start("bittrex","BTCXRP")));
+console.log(JSON.stringify(cryptoSocket.start("bittrex","ETHXRP")));
 },1000);
 }, 3000);
 
