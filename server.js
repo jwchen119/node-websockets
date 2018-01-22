@@ -21,7 +21,7 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 cryptoSocket.start();
-console.log(cryptoSocket.Exchanges['bitfinex']);
+
 
 setInterval(() => {
   wss.clients.forEach((client) => {
