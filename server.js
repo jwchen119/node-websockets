@@ -24,8 +24,6 @@ wss.on('connection', (ws) => {
 
 setInterval(() => {
   wss.clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
       client.send(JSON.stringify(cryptoSocket.Exchanges['bittrex']));
-    }
   });
 }, 1000);
