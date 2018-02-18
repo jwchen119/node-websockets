@@ -35,4 +35,5 @@ wss.clients.forEach((client) => {
      .then((tick) => {
         console.log(tick);
   });
+  });
 }, 1000);
