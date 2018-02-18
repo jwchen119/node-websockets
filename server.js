@@ -27,10 +27,9 @@ coinTicker('bitfinex','BTC_USD')
       console.log(tick);
       Crypto = tick;
   })
-}, 3000);
+}, 1000);
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-      client.send(JSON.stringify(Crypto));
   });
 }, 1000);
