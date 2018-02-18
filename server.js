@@ -31,6 +31,8 @@ coinTicker('bitfinex','pairs')
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-      client.send(JSON.stringify(Crypto));
+      coinTicker('bitfinex','pairs')
+     .then((tick) => {
+        console.log(tick);
   });
 }, 1000);
