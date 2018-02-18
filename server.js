@@ -21,13 +21,15 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = "Suka blat";
+setTimeout(function() {
+coinTicker('bitfinex',['BTC_USD','ETH_USD'])
+   .then((tick) => {
+      Crypto = tick;
+  })
+}, 3000);
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-  coinTicker('bitfinex','BTC_USD')
-   .then((tick) => {
-      console.log(tick);
-      Crypto = tick;
-  client.send(JSON.stringify(Crypto));
+      client.send(Crypto);
   });
 }, 1000);
