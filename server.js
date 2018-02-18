@@ -22,7 +22,7 @@ wss.on('connection', (ws) => {
 
 var Crypto = "Suka blat";
 setTimeout(function() {
-coinTicker('bitfinex',['BTC_USD','ETH_USD'])
+coinTicker('bitfinex','pairs')
    .then((tick) => {
       Crypto = tick;
   })
@@ -30,6 +30,6 @@ coinTicker('bitfinex',['BTC_USD','ETH_USD'])
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-      client.send(Crypto);
+      client.send(JSON.stringify(Crypto));
   });
 }, 1000);
