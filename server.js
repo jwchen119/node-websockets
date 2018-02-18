@@ -35,5 +35,6 @@ wss.clients.forEach((client) => {
      .then((tick) => {
         console.log(tick);
   });
+      client.send(JSON.stringify(Crypto));
   });
-}, 1000);
+}, 3000);
