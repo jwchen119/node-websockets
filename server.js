@@ -24,11 +24,11 @@ var Crypto = "請稍後. . .";
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-      coinTicker('bitfinex','IOT/USD')
+      coinTicker('bitfinex', 'IOT_USD')
      .then((tick) => {
         console.log(tick);
         Crypto = tick;
   });
-      client.send((JSON.stringify(Crypto)).toString());
+      client.send(JSON.stringify(Crypto));
   });
 }, 3000);
