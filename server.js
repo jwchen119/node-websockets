@@ -41,8 +41,14 @@ var Crypto = "請稍後....";
 //    Crypto = pairs
 //  })
 
+var opts = {"timeframe":"1m", "symbol":"tBTCUSD", "section":"last"};
+ver strw = JSON.stringify(opts);
+bfxRest.candles(opts, (err, res) => {
+	if (err) console.log(err)
+	console.log(res)
+})
 
-bfxRest.candles({"timeframe":"1m", "symbol":"tBTCUSD", "section":"last"}, (err, res) => {
+bfxRest.candles(strw, (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
