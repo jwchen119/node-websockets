@@ -24,7 +24,7 @@ var Crypto = "請稍後...";
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-  coinTicker('bitfinex', 'BTC_USD')
+  coinTicker('bitfinex', 'ETH_USD')
    .then((pairs) => {
     console.log(pairs);
   })
