@@ -48,18 +48,20 @@ var opts = {
   symbol: 'tIOTUSD',
   section: 'hist'
 }
-//var strw = JSON.stringify(opts);
-bfxRest.candles((err, res) => {
+
+var strw = JSON.stringify(opts);
+
+bfxRest.candles(opts, (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
 
-/*
+
 bfxRest.candles(strw, (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
-*/
+
 
 setInterval(() => {
     wss.clients.forEach((client) => {
