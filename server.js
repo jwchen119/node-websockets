@@ -32,7 +32,7 @@ var Crypto = "請稍後...";
 //  });
 //}, 1000);
 
-  coinTicker(['bitfinex', 'eth_btc'])
+  coinTicker(['bitfinex'], 'eth_btc')
    .then((pairs) => {
     console.log(pairs);
     Crypto = pairs
