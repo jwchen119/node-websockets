@@ -52,7 +52,7 @@ var strw = JSON.stringify(opts);
 
 bfxRest.candles(opts, (err, res) => {
 	if (err) console.log(err)
-	console.log(res)
+	console.log(res.key)
 })
 
 
