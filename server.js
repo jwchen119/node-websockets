@@ -4,6 +4,8 @@ const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
 const coinTicker = require('coin-ticker');
+const BFX = require('bitfinex-api-node')
+const bfxRest = new BFX(apiKey, apiSecretKey, {version: 1}).rest
 
 
 const PORT = process.env.PORT || 3000;
@@ -32,15 +34,23 @@ var Crypto = "請稍後...";
 //  });
 //}, 1000);
 
+/*
   coinTicker('binance', ['eth_btc'])
    .then((pairs) => {
     console.log(pairs);
     Crypto = pairs
   })
+*/
+
+bfxRest.ticker('BTCUSD', (err, res) => {
+	if (err) console.log(err)
+	console.log(result)
+})
 
 setInterval(() => {
     wss.clients.forEach((client) => {
       client.send(JSON.stringify(Crypto));
     });
 }, 1000);
+
 
