@@ -45,7 +45,7 @@ var Crypto = "請稍後....";
 
 var opts = {};
 opts.timeframe= "1m";
-opts.symbol= "tIOTUSD";
+opts.symbol= "tIOTUSDaa";
 opts.section= "hist";
 
 var strw = JSON.stringify(opts);
