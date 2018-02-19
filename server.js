@@ -5,17 +5,7 @@ const SocketServer = require('ws').Server;
 const path = require('path');
 //const coinTicker = require('coin-ticker');
 const BFX = require('bitfinex-api-node')
-const bfx = new BFX({
-  apiKey: '1234',
-  apiSecret: '4321',
-
-  ws: {
-    autoReconnect: true,
-    seqAudit: true,
-    packetWDDelay: 10 * 1000
-  }
-})
-const rest = bfx.rest(2)
+const bfxRest = new BFX(apiKey, apiSecretKey, {version: 2}).rest
 
 
 const PORT = process.env.PORT || 3000;
@@ -52,14 +42,14 @@ var Crypto = "請稍後...";
 //  })
 
 
-rest.ticker('tETHUSD', (err, res) => {
+bfxRest.ticker('tETHUSD', (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	rest.candles('1m', 'tBTCUSD', 'hist', (err, res) => {
+	bfxRest.candles('1m', 'tBTCUSD', 'hist', (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
