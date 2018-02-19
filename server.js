@@ -43,9 +43,11 @@ var Crypto = "請稍後...";
 
 
 bfxRest.ticker('ETHUSD', (err, res) => {
+	.then((pairs) => {
 	if (err) console.log(err)
-	console.log(result)
+	console.log(pairs)
 })
+	});
 
 setInterval(() => {
     wss.clients.forEach((client) => {
