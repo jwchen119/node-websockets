@@ -34,7 +34,7 @@ opts.section= "hist";
 
 //var strw = JSON.stringify(opts);
 
-bfxRest.candles(opts, (err, res) => {
+bfxRest.candles({ symbol:"ttIOTUSD" }, (err, res) => {
 	if (err) console.log(err)
 	console.log(JSON.stringify(res))
 })
