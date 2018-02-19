@@ -41,9 +41,9 @@ var Crypto = "請稍後....";
 //    Crypto = pairs
 //  })
 
-var opts = {};
+var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"hist"};
 var strw = JSON.stringify(opts);
-bfxRest.candles(opts, (err, res) => {
+bfxRest.candles(opts, strw, (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
