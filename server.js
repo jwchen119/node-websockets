@@ -39,6 +39,18 @@ bfxRest.candles({ symbol:"ttIOTUSD" }, (err, res) => {
 	console.log(JSON.stringify(res))
 })
 
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://api.bitfinex.com/v2/calc/trade/avg',
+  qs: { symbol: 'tBTCUSD' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
 /*
 bfxRest.candles(strw, (err, res) => {
 	if (err) console.log(err)
