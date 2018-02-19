@@ -55,7 +55,7 @@ bfxRest.candles(strw, (err, res) => {
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	bfxRest.candles(['1m', 'tBTCUSD', 'last'], (err, res) => {
+	bfxRest.ticker('tIOTUSD', (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
