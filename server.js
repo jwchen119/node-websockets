@@ -37,6 +37,6 @@ wss.clients.forEach((client) => {
    .then((pairs) => {
     console.log(pairs);
     client.send(JSON.stringify(Crypto));
-  });
+  })
 });
 
