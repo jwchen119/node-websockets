@@ -32,8 +32,11 @@ var Crypto = "請稍後...";
 //  });
 //}, 1000);
 
+wss.clients.forEach((client) => {
+  coinTicker('bitfinex', 'ETH_USD')
+   .then((pairs) => {
+    console.log(pairs);
+    client.send(JSON.stringify(Crypto));
+  });
+});
 
-const WebSocket = require('ws')
-
-const wss2 = new WebSocket('wss://api.bitfinex.com/ws/')
-wss.onmessage = (msg) => console.log(msg.data)
