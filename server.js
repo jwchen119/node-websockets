@@ -24,7 +24,7 @@ var Crypto = "請稍後...";
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-  coinTicker('coinbase', 'LTC_BTC')
+  coinTicker()
    .then((pairs) => {
     console.log(pairs);
   })
