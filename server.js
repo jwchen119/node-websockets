@@ -42,7 +42,7 @@ var Crypto = "請稍後....";
 //  })
 
 
-bfxRest.candles(['1m', 'tBTCUSD', 'last'], (err, res) => {
+bfxRest.candles({'1m', 'tBTCUSD', 'last'}, (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
