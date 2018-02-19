@@ -15,6 +15,7 @@ const bfx = new BFX({
     packetWDDelay: 10 * 1000
   }
 })
+const rest = bfx.rest(2)
 
 
 const PORT = process.env.PORT || 3000;
@@ -51,14 +52,14 @@ var Crypto = "請稍後...";
 //  })
 
 
-bfx.ticker('tETHUSD', (err, res) => {
+rest.ticker('tETHUSD', (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	bfx.candles('1m', 'tBTCUSD', 'hist', (err, res) => {
+	rest.candles('1m', 'tBTCUSD', 'hist', (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
