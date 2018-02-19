@@ -22,12 +22,18 @@ wss.on('connection', (ws) => {
 
 var Crypto = "請稍後...";
 
-setInterval(() => {
-wss.clients.forEach((client) => {
-  coinTicker('bitfinex', 'ETH_USD')
-   .then((pairs) => {
-    console.log(pairs);
-  })
-      client.send(JSON.stringify(Crypto));
-  });
-}, 1000);
+//setInterval(() => {
+//wss.clients.forEach((client) => {
+//  coinTicker('bitfinex', 'ETH_USD')
+//   .then((pairs) => {
+//    console.log(pairs);
+//  })
+//      client.send(JSON.stringify(Crypto));
+//  });
+//}, 1000);
+
+
+const WebSocket = require('ws')
+
+const wss = new WebSocket('wss://api.bitfinex.com/ws/')
+wss.onmessage = (msg) => console.log(msg.data)
