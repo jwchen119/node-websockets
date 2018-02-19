@@ -24,7 +24,7 @@ wss.on('connection', (ws) => {
 
 var Crypto = "請稍後....";
 
-var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"hist"};
+var opts = {timeframe:"30m", symbol:"ttIOTUSD", section:"hist"};
 /*
 var opts = {};
 opts.timeframe= "1m";
