@@ -20,15 +20,16 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var Crypto = "請稍後. . .";
+var Crypto = "請稍後...";
+setTimeout(function() {
+coinTicker('bitfinex',['BTC_USD','ETH_USD'])
+   .then((tick) => {
+      Crypto = tick;
+  })
+}, 3000);
 
 setInterval(() => {
 wss.clients.forEach((client) => {
-      coinTicker('bitfinex', 'IOT_USD')
-     .then((tick) => {
-        console.log(tick);
-        Crypto = tick;
-  });
       client.send(JSON.stringify(Crypto));
   });
-}, 3000);
+}, 1000);
