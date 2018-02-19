@@ -35,5 +35,5 @@ var Crypto = "請稍後...";
 
 const WebSocket = require('ws')
 
-const wss = new WebSocket('wss://api.bitfinex.com/ws/')
+const wss2 = new WebSocket('wss://api.bitfinex.com/ws/')
 wss.onmessage = (msg) => console.log(msg.data)
