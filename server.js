@@ -49,6 +49,11 @@ bfxRest.ticker('ETHUSD', (err, res) => {
 
 setInterval(() => {
     wss.clients.forEach((client) => {
+	bfxRest.ticker('ETHUSD', (err, res) => {
+	    if (err) console.log(err)
+	    console.log(res)
+	    Crypto = res
+	})
       client.send(JSON.stringify(Crypto));
     });
 }, 1000);
