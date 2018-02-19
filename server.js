@@ -42,7 +42,7 @@ var Crypto = "請稍後....";
 //  })
 
 
-bfxRest.ticker('ETHUSD', (err, res) => {
+bfxRest.ticker('tETHUSD', (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
