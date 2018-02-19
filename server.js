@@ -20,7 +20,7 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var Crypto = "Suka blat";
+var Crypto = "請稍後. . .";
 
 setInterval(() => {
 wss.clients.forEach((client) => {
