@@ -49,7 +49,7 @@ bfxRest.ticker('tETHUSD', (err, res) => {
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	bfxRest.candles('1m', 'tBTCUSD', 'hist', (err, res) => {
+	bfxRest.candles(['1m', 'tBTCUSD', 'hist'], (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
