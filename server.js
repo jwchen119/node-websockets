@@ -36,7 +36,7 @@ wss.clients.forEach((client) => {
   coinTicker('bitfinex', 'ETH_USD')
    .then((pairs) => {
     console.log(pairs);
-    client.send(JSON.stringify(Crypto));
   })
+  client.send(JSON.stringify(Crypto));
 });
 
