@@ -24,43 +24,27 @@ wss.on('connection', (ws) => {
 
 var Crypto = "請稍後....";
 
-//setInterval(() => {
-//wss.clients.forEach((client) => {
-//  coinTicker('bitfinex', 'ETH_USD')
-//   .then((pairs) => {
-//    console.log(pairs);
-//  })
-//      client.send(JSON.stringify(Crypto));
-//  });
-//}, 1000);
-
-
-//  coinTicker('binance', ['eth_btc'])
-//   .then((pairs) => {
-//    console.log(pairs);
-//    Crypto = pairs
-//  })
-
-//var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"hist"};
-
+var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"hist"};
+/*
 var opts = {};
 opts.timeframe= "1m";
 opts.symbol= "tIOTUSDaa";
 opts.section= "hist";
+*/
 
-var strw = JSON.stringify(opts);
+//var strw = JSON.stringify(opts);
 
 bfxRest.candles(opts, (err, res) => {
 	if (err) console.log(err)
 	console.log(JSON.stringify(res))
 })
 
-
+/*
 bfxRest.candles(strw, (err, res) => {
 	if (err) console.log(err)
 	console.log(res)
 })
-
+*/
 
 setInterval(() => {
     wss.clients.forEach((client) => {
