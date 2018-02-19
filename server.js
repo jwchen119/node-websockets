@@ -32,13 +32,15 @@ var Crypto = "請稍後...";
 //  });
 //}, 1000);
 
-setInterval(() => {
-wss.clients.forEach((client) => {
   coinTicker('bitfinex', 'ETH_USD')
    .then((pairs) => {
     console.log(pairs);
+    Crypto = pairs
   })
-  client.send(JSON.stringify(Crypto));
-});
+
+setInterval(() => {
+    wss.clients.forEach((client) => {
+      client.send(JSON.stringify(Crypto));
+    });
 }, 1000);
 
