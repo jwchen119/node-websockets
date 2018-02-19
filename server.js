@@ -21,15 +21,13 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = "請稍後...";
-setTimeout(function() {
-coinTicker('bitfinex',['BTC_USD','ETH_USD'])
-   .then((tick) => {
-      Crypto = tick;
-  })
-}, 3000);
 
 setInterval(() => {
 wss.clients.forEach((client) => {
+  coinTicker(['bitfinex','pairs'])
+   .then((pairs) => {
+    console.log(pairs);
+  })
       client.send(JSON.stringify(Crypto));
   });
 }, 1000);
