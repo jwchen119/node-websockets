@@ -27,8 +27,8 @@ wss.clients.forEach((client) => {
       coinTicker('bitfinex','pairs')
      .then((tick) => {
         console.log(tick);
-        Crypto = tick.type;
+        Crypto = tick;
   });
-      client.send(JSON.stringify(Crypto));
+      client.send((JSON.stringify(Crypto)).toString());
   });
 }, 3000);
