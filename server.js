@@ -26,7 +26,7 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var Crypto = "請稍後....";
+var Crypto = "wait....";
 
 var opts = {timeframe:"30m", symbol:"tIOTUSD", section:"hist"};
 
