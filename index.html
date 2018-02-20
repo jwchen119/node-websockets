@@ -7,8 +7,8 @@
       var ws = new WebSocket(HOST);
       var el = document.getElementById('server-time');
       ws.onmessage = function (event) {
-        console.log(event);
-        el.innerHTML = 'Data: ' + event.data;
+        var msg = JSON.parse(event.data);
+        el.innerHTML = 'IOTA 1分鐘K線:' + '<br>' + 'Time: ' + msg.date + '<br>' + '開盤: ' + msg.open + '<br>' + '收盤: ' + msg.close + '<br>' + '成交量: ' + msg.volume;
       };
     </script>
   </body>
