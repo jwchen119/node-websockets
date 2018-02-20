@@ -31,10 +31,8 @@ var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
 function candles_line() {
 	bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
-		  res.forEach((candlesz) => {
-			Crypto = candlesz.mts;
-			return Crypto;
-  	    })
+		Crypto = res;
+		return Crypto;
     	})
 }
 setInterval(() => {
