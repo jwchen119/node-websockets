@@ -11,13 +11,16 @@ const bfx = new BFX({
 })
 
 const bfxRest = bfx.rest(2);
-const ws = bfx.ws(2)
+const bfxWS = bfx.ws(2, {
+  manageCandles: true,  // enable candle dataset persistence/management
+  transform: true       // converts ws data arrays to Candle models (and others)
+})
 
 const CANDLE_KEY = 'trade:1m:tIOTUSD'
 let prevTS = null
 
-ws.on('open', () => {
-  ws.subscribeCandles(CANDLE_KEY)
+bfxWS.on('open', () => {
+  bfxWS.subscribeCandles(CANDLE_KEY)
 })
 
 const PORT = process.env.PORT || 3000;
@@ -37,7 +40,7 @@ wss.on('connection', (ws) => {
 var Crypto = "wait....";
 var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
 
-ws.onCandle({ key: CANDLE_KEY }, (candles) => {
+bfxWS.onCandle({ key: CANDLE_KEY }, (candles) => {
   if (prevTS === null || candles[0].mts > prevTS) {
     const Crypto = candles[1] // report previous candle
     )
@@ -45,7 +48,7 @@ ws.onCandle({ key: CANDLE_KEY }, (candles) => {
   }
 })
 
-ws.open()
+bfxWS.open()
 client.send(JSON.stringify(Crypto));
 
 /*
