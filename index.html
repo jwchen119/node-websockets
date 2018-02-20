@@ -10,8 +10,8 @@
       ws.onmessage = function (event) {
         var msg = JSON.parse(event.data);
         var time = (new Date()).toLocaleTimeString(); 
-        var t1= setInterval("addThing();",1000);
-        el.innerHTML = 'Data: ' + event.data + '<br>' + time;
+        var t1= setInterval(time,1000);
+        el.innerHTML = 'Data: ' + event.data + '<br>' + t1;
       };
     </script>
   </body>
