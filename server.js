@@ -26,14 +26,14 @@ var Crypto = "請稍後....";
 
 var opts = {timeframe:"30m", symbol:"ttIOTUSD", section:"hist"};
 
-bfxRest.candles(opts, (err, res) => {
+bfx.candles(opts, (err, res) => {
 	if (err) console.log(err)
 	console.log(JSON.stringify(res))
 })
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	bfxRest.ticker('tIOTUSD', (err, res) => {
+	bfx.ticker('tIOTUSD', (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
