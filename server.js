@@ -5,8 +5,11 @@ const SocketServer = require('ws').Server;
 const path = require('path');
 //const coinTicker = require('coin-ticker');
 const BFX = require('bitfinex-api-node')
-const bfxRest = new BFX('1234', '4321', {version: 2}).rest
 
+const bfxRest = new BFX({
+  apiKey: '1234'
+  apiSecret: '4321'
+}).rest(2)
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
