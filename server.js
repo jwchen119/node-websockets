@@ -26,19 +26,16 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var Crypto = 'wait....';
-
-function candles_line() {
-	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
-	bfxRest.candles(opts, (err, res) => {
-	    if (err) console.log(err)
-		Crypto = res;
-		return Crypto;
-    	})
-}
+var Crypto = "wait....";
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-      client.send(candles_line());
+	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
+        bfxRest.candles(opts, (err, res) => {
+	    if (err) console.log(err)
+	    console.log(res)
+	    Crypto = res
     })
-}, 5000);
+      client.send(JSON.stringify(Crypto));
+    });
+}, 6000);
