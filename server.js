@@ -26,7 +26,7 @@ var Crypto = "請稍後....";
 
 var opts = {timeframe:"30m", symbol:"ttIOTUSD", section:"hist"};
 
-bfxRest.candles({ symbol:"tIOTUSD" }, (err, res) => {
+bfxRest.candles(opts, (err, res) => {
 	if (err) console.log(err)
 	console.log(JSON.stringify(res))
 })
