@@ -9,7 +9,9 @@
 
       ws.onmessage = function (event) {
         var msg = JSON.parse(event.data);
-        el.innerHTML = 'Data: ' + msg.crypo + '<br>' + msg.date;
+        var time = (new Date()).toLocaleTimeString(); 
+        var t1= setInterval("addThing();",1000);
+        el.innerHTML = 'Data: ' + event.data + '<br>' + time;
       };
     </script>
   </body>
