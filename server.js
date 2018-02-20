@@ -27,8 +27,9 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = 'wait....';
-var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
+
 function candles_line() {
+	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
 	bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 		Crypto = res;
