@@ -5,7 +5,12 @@ const SocketServer = require('ws').Server;
 const path = require('path');
 const BFX = require('bitfinex-api-node')
 
-const bfxRest = new BFX({ apiKey: '1234', apiSecret: '4321' }).rest(2)
+const bfx = new BFX({ 
+	apiKey: '1234',
+	apiSecret: '4321',
+})
+
+const rest = bfx.rest(2, { transform: true })
 //const bfxRest = bfx.rest(2)
 
 const PORT = process.env.PORT || 3000;
