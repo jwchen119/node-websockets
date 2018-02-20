@@ -32,9 +32,13 @@ setInterval(() => {
     wss.clients.forEach((client) => {
 	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
         bfxRest.candles(opts, (err, res) => {
-	    if (err) console.log(err)
-//	    console.log(res)
-	    Crypto = res
+	    if (err) {
+	        console.log(err)
+	    }
+	    
+	    res.forEach((candletick) => {
+	    Crypto = candletick.mts
+	})
     })
       client.send(JSON.stringify(Crypto));
     });
