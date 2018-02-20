@@ -5,7 +5,7 @@ const SocketServer = require('ws').Server;
 const path = require('path');
 const BFX = require('bitfinex-api-node');
 const bfx = new BFX();
-//const rest = bfx.rest(2);
+const bfxRest = new BFX('1234', '4321', {version: 2}).rest
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
@@ -26,14 +26,14 @@ var Crypto = "請稍後....";
 
 var opts = {timeframe:"30m", symbol:"ttIOTUSD", section:"hist"};
 
-bfx.candles(opts, (err, res) => {
+bfxRest.candles(opts, (err, res) => {
 	if (err) console.log(err)
 	console.log(JSON.stringify(res))
 })
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	bfx.ticker('tIOTUSD', (err, res) => {
+	bfxRest.ticker('tIOTUSD', (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
