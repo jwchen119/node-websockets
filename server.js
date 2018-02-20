@@ -35,10 +35,7 @@ setInterval(() => {
 	    if (err) {
 	        console.log(err)
 	    }
-	    
-	    res.forEach((candletick) => {
-	    Crypto = candletick.mts
-	})
+	    Crypto = res[0];
     })
       client.send(JSON.stringify(Crypto));
     });
