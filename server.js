@@ -8,8 +8,8 @@ const BFX = require('bitfinex-api-node')
 
 const bfxRest = new BFX({
   apiKey: '1234',
-  apiSecret: '4321',
-}).rest(2);
+  apiSecret: '4321'
+}).rest
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
