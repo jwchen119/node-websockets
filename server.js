@@ -33,7 +33,7 @@ setInterval(() => {
 	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
-	    console.log(res)
+//	    console.log(res)
 	    Crypto = res
     })
       client.send(JSON.stringify(Crypto));
