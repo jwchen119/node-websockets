@@ -35,7 +35,7 @@ setInterval(() => {
 	    if (err) {
 	        console.log(err)
 	    }
-	    var Crypto = {date: res[0]};
+	    var Crypto = res[0];
     })
       client.send(JSON.stringify(Crypto));
     });
