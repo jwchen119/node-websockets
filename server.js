@@ -35,8 +35,11 @@ setInterval(() => {
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
-	    Crypto = res.mts
-    })
+		  res.forEach((candlesz) => {
+			Crypto = candlesz.mts
+  			})
+//	    Crypto = res.mts
+    	})
       client.send(JSON.stringify(Crypto));
     });
 }, 5000);
