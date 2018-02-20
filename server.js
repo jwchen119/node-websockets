@@ -35,14 +35,7 @@ setInterval(() => {
 	    if (err) {
 	        console.log(err)
 	    }
-	    var Crypto = {
-		    date: res[0],
-		    open: res[1],
-		    close: res[2],
-		    high: res[3],
-		    low: res[4],
-		    volume: res[5],
-	    };
+	    var Crypto = {date: res[0], open: res[1], close: res[2], high: res[3], low: res[4], volume: res[5],};
     })
       client.send(JSON.stringify(Crypto));
     });
