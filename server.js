@@ -42,7 +42,7 @@ setInterval(() => {
 		    "high": res[3],
 		    "low": res[4],
 		    "volume": res[5],
-	    }
+	    };
     })
       client.send(JSON.stringify(Crypto));
     });
