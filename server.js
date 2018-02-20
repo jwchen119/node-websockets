@@ -39,4 +39,4 @@ setInterval(() => {
     })
       client.send(JSON.stringify(Crypto));
     });
-}, 3000);
+}, 5000);
