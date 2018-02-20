@@ -27,11 +27,10 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = 'wait....';
-var err = 'something wrong!';
-var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
 
 setInterval(() => {
     wss.clients.forEach((client) => {
+	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 		  res.forEach((candlesz) => {
