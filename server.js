@@ -26,7 +26,8 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-var Crypto = "wait....";
+var Crypto = 'wait....';
+var err = 'something wrong!';
 var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
 
 setInterval(() => {
@@ -34,7 +35,7 @@ setInterval(() => {
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
-	    Crypto = res
+	    Crypto = res.mts
     })
       client.send(JSON.stringify(Crypto));
     });
