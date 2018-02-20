@@ -9,7 +9,7 @@
 
       ws.onmessage = function (event) {
         console.log(event);
-//        var candle = JSON.prase(event.data);
+        var msg = JSON.parse(event.data);
         el.innerHTML = 'Data: ' + event.data;
       };
     </script>
