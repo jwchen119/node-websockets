@@ -9,8 +9,8 @@
 
       ws.onmessage = function (event) {
         console.log(event);
-        var msg = JSON.parse(event.data);
-        el.innerHTML = 'Data: ' + event.data + '<br>' + msg.date;
+        var candle = JSON.parse(event.data);
+        el.innerHTML = 'IOTA 1分鐘K線: ' + '<br>' + '開盤: ' + candle.open + '<br>' + '收盤: ' + candle.close + '<br>' + '成交量: ' + candle.volume + '<br>' + 'Timestamp: ' + candle.date + '<br>';
       };
     </script>
   </body>
