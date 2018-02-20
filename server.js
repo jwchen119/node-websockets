@@ -10,7 +10,7 @@ const bfx = new BFX({
     apiSecret: '4321',
 })
 
-const bfxRest = bfx.rest(2)
+const bfxRest = bfx.rest(2);
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
