@@ -27,16 +27,18 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = 'wait....';
-
-setInterval(() => {
-    wss.clients.forEach((client) => {
-	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
-        bfxRest.candles(opts, (err, res) => {
+var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
+function candles_line() {
+	bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 		  res.forEach((candlesz) => {
 			Crypto = candlesz.mts;
+			return Crypto;
   	    })
     	})
-      client.send(JSON.stringify(Crypto));
+}
+setInterval(() => {
+    wss.clients.forEach((client) => {
+      client.send(JSON.stringify(candles_line()));
     });
 }, 5000);
