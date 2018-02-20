@@ -9,7 +9,7 @@
 
       ws.onmessage = function (event) {
         var msg = JSON.parse(event.data);
-        el.innerHTML = 'Data: ' + event.data + '<br>' + event.data;
+        el.innerHTML = 'Data: ' + msg.crypo + '<br>' + msg.date;
       };
     </script>
   </body>
