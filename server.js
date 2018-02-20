@@ -34,11 +34,9 @@ setInterval(() => {
     wss.clients.forEach((client) => {
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
-	    console.log(res)
 		  res.forEach((candlesz) => {
-			Crypto = candlesz.mts
-  			})
-//	    Crypto = res.mts
+			Crypto = candlesz.mts;
+  	    })
     	})
       client.send(JSON.stringify(Crypto));
     });
