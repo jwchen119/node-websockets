@@ -9,10 +9,7 @@
 
       ws.onmessage = function (event) {
         var msg = JSON.parse(event.data);
-        var time = new Date(msg.date);
-        var timeStr = time.toLocaleTimeString();
-        console.log(event);
-        el.innerHTML = 'Data: ' + event.data + '<br>' + timeStr;
+        el.innerHTML = 'Data: ' + event.data + '<br>' + event.data;
       };
     </script>
   </body>
