@@ -36,8 +36,9 @@ function candles_line() {
 		return Crypto;
     	})
 }
+
 setInterval(() => {
     wss.clients.forEach((client) => {
-      client.send(JSON.stringify(candles_line()));
-    });
+      client.send(candles_line());
+    })
 }, 5000);
