@@ -6,9 +6,11 @@
       var HOST = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(HOST);
       var el = document.getElementById('server-time');
+
       ws.onmessage = function (event) {
-        var candle = JSON.parse(event.data);
-        el.innerHTML = 'IOTA 1分鐘K線: ' + '<br>' + 'time: ' + candle.date;
+        console.log(event);
+        var candle = JSON.prase(event.data);
+        el.innerHTML = 'Data: ' + event.data;
       };
     </script>
   </body>
