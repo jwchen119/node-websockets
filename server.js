@@ -37,6 +37,7 @@ bfxRest.candles(opts, (err, res) => {
 
 setInterval(() => {
     wss.clients.forEach((client) => {
+	var opts = {timeframe:"30m", symbol:"tIOTUSD", section:"hist"};
 	bfxRest.candles(opts, (err, res) => {
 		if (err) console.log(err)
 		console.log(res)
