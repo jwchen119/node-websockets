@@ -13,11 +13,6 @@ const bfx = new BFX({
 const bfxRest = bfx.rest(2);
 const ws = bfx.ws(2)
 
-ws.on('open', () => {
-  debug('open')
-  ws.subscribeCandles(CANDLE_KEY)
-})
-
 const CANDLE_KEY = 'trade:1m:tIOTUSD'
 let prevTS = null
 
