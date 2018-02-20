@@ -40,7 +40,7 @@ setInterval(() => {
 	bfxRest.candles((err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
-	    Crypto = res
+	    Crypto = res;
 	})
       client.send(JSON.stringify(Crypto));
     });
