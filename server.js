@@ -37,9 +37,10 @@ bfxRest.candles(opts, (err, res) => {
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	bfxRest.ticker('tIOTUSD', (err, res) => {
-	    if (err) console.log(err)
-	    console.log(res)
+	bfxRest.candles(opts, (err, res) => {
+		if (err) console.log(err)
+		console.log(res)
+})
 	    Crypto = res
 	})
       client.send(JSON.stringify(Crypto));
