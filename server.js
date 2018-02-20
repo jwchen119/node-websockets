@@ -29,29 +29,13 @@ wss.on('connection', (ws) => {
 var Crypto = "wait....";
 var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
 
-
-
-setTimeout(function() {
-bfxRest.candles(opts, (err, res) => {
-   if (err) console.log(err)
-    console.log(res)
-    Crypto = res
-  })
-}, 3000);
-
-var msg = {
-    crypo: Crypto,
-    date: new Date().toTimeString(),
- };
-
 setInterval(() => {
     wss.clients.forEach((client) => {
-	
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
     })
-      client.send(JSON.stringify(msg));
+      client.send(JSON.stringify(Crypto));
     });
-}, 1000);
+}, 5000);
