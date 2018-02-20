@@ -27,21 +27,31 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = "wait....";
+var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
+
+
+
+setTimeout(function() {
+bfxRest.candles(opts, (err, res) => {
+   if (err) console.log(err)
+    console.log(res)
+    Crypto = res
+  })
+}, 3000);
+
+var msg = {
+    crypo: Crypto,
+    date: new Date().toTimeString(),
+ };
 
 setInterval(() => {
     wss.clients.forEach((client) => {
-	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
+	
         bfxRest.candles(opts, (err, res) => {
 	    if (err) console.log(err)
 	    console.log(res)
 	    Crypto = res
     })
-      client.send(JSON.stringify(Crypto));
+      client.send(JSON.stringify(msg));
     });
-}, 6000);
-
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
 }, 1000);
