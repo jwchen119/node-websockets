@@ -3,7 +3,6 @@
 const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
-//const coinTicker = require('coin-ticker');
 const BFX = require('bitfinex-api-node')
 
 const bfx = new BFX({ 'apiKey': '1234', 'apiSecret': '4321' })
@@ -26,38 +25,11 @@ wss.on('connection', (ws) => {
 var Crypto = "請稍後....";
 
 var opts = {timeframe:"30m", symbol:"ttIOTUSD", section:"hist"};
-/*
-var opts = {};
-opts.timeframe= "1m";
-opts.symbol= "tIOTUSDaa";
-opts.section= "hist";
-*/
 
-//var strw = JSON.stringify(opts);
-
-bfxRest.candles({ symbol:"ttIOTUSD" }, (err, res) => {
+bfxRest.candles({ symbol:"tIOTUSD" }, (err, res) => {
 	if (err) console.log(err)
 	console.log(JSON.stringify(res))
 })
-
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://api.bitfinex.com/v2/calc/trade/avg',
-  qs: { symbol: 'tBTCUSD' } };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-
-/*
-bfxRest.candles(strw, (err, res) => {
-	if (err) console.log(err)
-	console.log(res)
-})
-*/
 
 setInterval(() => {
     wss.clients.forEach((client) => {
