@@ -21,16 +21,6 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-  const ws = bfx.ws(2);
-  ws.on('open', () => {
-    console.log('Subscribing to: ', symbols);
-    symbols.forEach(symbol => ws.subscribeTrades(symbol));
-
-    ws.on('trades', (symbol, trades) => {
-      console.log(symbol, trades);
-    });
-  });
-  ws.open();
 
 var Crypto = "請稍後....";
 
