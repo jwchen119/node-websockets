@@ -26,7 +26,7 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-//var Crypto = {};
+var Crypto = "";
 
 setInterval(() => {
     wss.clients.forEach((client) => {
@@ -35,7 +35,7 @@ setInterval(() => {
 	    if (err) {
 	        console.log(err)
 	    }
-	    var Crypto = res[0];
+	    Crypto = res[0];
     })
       client.send(JSON.stringify(Crypto));
     });
