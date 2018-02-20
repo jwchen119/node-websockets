@@ -4,8 +4,13 @@ const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
 const BFX = require('bitfinex-api-node');
-const bfx = new BFX();
-const bfxRest = new BFX('1234','4321').rest
+
+const bfx = new BFX({ 
+    apiKey: '1234',
+    apiSecret: '4321',
+})
+
+const bfxRest = bfx.rest(2);
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
@@ -21,14 +26,13 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-
 var Crypto = "請稍後....";
 
-var opts = {timeframe:"30m", symbol:"ttIOTUSD", section:"hist"};
+var opts = {timeframe:"30m", symbol:"tIOTUSD", section:"hist"};
 
 bfxRest.candles(opts, (err, res) => {
 	if (err) console.log(err)
-	console.log(JSON.stringify(res))
+	console.log(res)
 })
 
 setInterval(() => {
@@ -41,5 +45,3 @@ setInterval(() => {
       client.send(JSON.stringify(Crypto));
     });
 }, 3000);
-
-
