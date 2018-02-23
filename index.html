@@ -26,5 +26,24 @@
         el.innerHTML = 'IOTA 1分鐘K線: ' + '<br><br>' + '開盤: ' + candle.open + '<br>' + '收盤: ' + candle.close + '<br>' + '成交量: ' + candle.volume + '<br>' + 'Timestamp: ' + timeConverter(candle.date) + '<br>';
       };
     </script>
+    
+    <p><script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script><br />
+<script type="text/javascript">
+new TradingView.widget({
+"width": 1040,
+"height": 610,
+"symbol": "BITFINEX:IOTUSD",
+"interval": "60",
+"timezone": "Etc/UTC",
+"theme": "Light",
+"style": "1",
+"locale": "en",
+"toolbar_bg": "#f1f3f6",
+"enable_publishing": false,
+"allow_symbol_change": true,
+"hideideas": true,
+"referral_id": "5554"
+});
+</script></p>
   </body>
 </html>
