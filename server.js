@@ -27,7 +27,7 @@ wss.on('connection', (ws) => {
 });
 
 var Crypto = {date:"Waiting...", open:"Waiting...", close:"Waiting...", high:"Waiting...", low:"Waiting...", volume:"Waiting..."};
-
+/*
 setInterval(() => {
     wss.clients.forEach((client) => {
 	var opts = {timeframe:"1m", symbol:"tIOTUSD", section:"last"};
@@ -40,3 +40,4 @@ setInterval(() => {
       client.send(JSON.stringify(Crypto));
     });
 }, 4000);
+*/
